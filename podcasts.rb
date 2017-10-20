@@ -69,7 +69,7 @@ class Podcasts
 
   def initialize
     @subscriptions = YAML.safe_load(File.read('config.yml'))
-    @podcast_home = File.join(Dir.home, 'podcasts')
+    @podcast_home = File.join(Dir.home, 'Music', 'podcasts')
 
     confirm_podcast_home_directory_exists
   end
