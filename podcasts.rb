@@ -84,6 +84,14 @@ class Podcasts
       puts "Checking #{title} for new episode"
       subscription.find_latest_episode
     end
+
+    update_mpc_playlist if Kernel.test('e', '/usr/bin/mpc')
+  end
+
+  def update_mpc_playlist
+    puts 'Updating mpc playlist with new content..'
+    Kernel.system 'mpc update --wait'
+    Kernel.system 'mpc ls | mpc add'
   end
 
   def confirm_podcast_home_directory_exists
