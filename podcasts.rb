@@ -91,6 +91,7 @@ class Podcasts
   def update_mpc_playlist
     puts 'Updating mpc playlist with new content..'
     Kernel.system 'mpc update --wait'
+    Kernel.system 'mpc clear'
     Kernel.system 'mpc ls | mpc add'
   end
 
